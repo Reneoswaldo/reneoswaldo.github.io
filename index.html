@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>René Moreno — Hoja de vida</title>
+  <meta name="description" content="Hoja de vida: experiencia, formación, cursos, publicaciones y proyectos." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111827;
+      --muted: #6b7280;
+      --card: #f8fafc;
+      --border: #e5e7eb;
+      --chip: #eef2ff;
+      --chipText: #3730a3;
+      --link: #1d4ed8;
+      --shadow: 0 8px 24px rgba(0,0,0,.06);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --card: #0f172a;
+        --border: #1f2937;
+        --chip: rgba(99,102,241,.18);
+        --chipText: #c7d2fe;
+        --link: #93c5fd;
+        --shadow: 0 10px 30px rgba(0,0,0,.35);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 16px 60px; }
+    header {
+      display: grid;
+      gap: 12px;
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(99,102,241,.08), transparent);
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0; font-size: clamp(26px, 3vw, 38px); letter-spacing: -0.02em; }
+    .tagline { margin: 0; color: var(--muted); font-size: 15px; }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      align-items: center;
+      margin-top: 2px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--chipText);
+      border: 1px solid rgba(99,102,241,.22);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .chip a { color: inherit; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    @media (min-width: 880px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    section {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .muted { color: var(--muted); }
+    .kpi {
+      display: grid;
+      gap: 10px;
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .kpi li {
+      padding: 10px 12px;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,.25);
+    }
+    @media (prefers-color-scheme: dark) {
+      .kpi li { background: rgba(255,255,255,.03); }
+    }
+    .toolbar {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    button {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--fg);
+      border-radius: 999px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    button.active {
+      border-color: rgba(99,102,241,.55);
+      background: rgba(99,102,241,.12);
+    }
+    input[type="search"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--fg);
+      outline: none;
+      font-size: 14px;
+    }
+    .list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 12px;
+      background: rgba(255,255,255,.35);
+    }
+    @media (prefers-color-scheme: dark) {
+      .item { background: rgba(255,255,255,.02); }
+    }
+    .itemTop {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .itemTitle { font-weight: 650; }
+    .itemMeta { color: var(--muted); font-size: 13px; }
+    .badge {
+      font-size: 12px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(99,102,241,.22);
+      background: var(--chip);
+      color: var(--chipText);
+      white-space: nowrap;
+    }
+    .footer {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .small { font-size: 12px; }
+
+    @media print {
+      header, section { box-shadow: none; }
+      .toolbar { display: none; }
+      a { color: inherit; text-decoration: none; }
+      body { background: #fff; color: #000; }
+      .item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>René Moreno</h1>
+        <p class="tagline">Administrador de Negocios · Magíster en Negocios Internacionales · Docencia en áreas administrativas y financieras</p>
+        <p class="tagline small muted">
+          (Edita este encabezado: nombre, ciudad, rol y enlaces.)
+        </p>
+      </div>
+
+      <div class="contact">
+        <span class="chip">📍 <span>[Ciudad, País]</span></span>
+        <span class="chip">✉️ <a href="mailto:[tuemail]">[tuemail]</a></span>
+        <span class="chip">🔗 <a href="[tu_linkedin]" target="_blank" rel="noreferrer">LinkedIn</a></span>
+        <span class="chip">📄 <a href="cv.pdf" target="_blank" rel="noreferrer">Descargar CV (PDF)</a></span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section>
+        <h2>Perfil</h2>
+        <p class="muted" style="margin:0;">
+          Docente y profesional en administración/negocios internacionales, con experiencia en educación (media y superior),
+          proyectos de exportación y publicaciones. (Puedes personalizar este texto en 3–5 líneas).
+        </p>
+
+        <ul class="kpi">
+          <li><strong>Docencia:</strong> experiencia como docente en áreas administrativas y financieras (instituciones y entidades educativas).</li>
+          <li><strong>Emprendimiento:</strong> proyectos de exportación con Pineapplexport SAS y experiencia previa en ventas/negocio propio.</li>
+          <li><strong>Publicaciones:</strong> autor de libros registrados con ISBN (Cámara Colombiana del Libro).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Cómo usar este archivo</h2>
+        <ol class="muted" style="margin:0; padding-left:18px;">
+          <li>Reemplaza los datos entre corchetes <strong>[ ]</strong> (correo, ciudad, LinkedIn, etc.).</li>
+          <li>Convierte tu CV a PDF y súbelo al repositorio como <strong>cv.pdf</strong>.</li>
+          <li>Publica con GitHub Pages (Settings → Pages → Branch: <strong>main</strong> / Folder: <strong>/(root)</strong>).</li>
+        </ol>
+        <p class="muted" style="margin:10px 0 0;">
+          Consejo: evita publicar números sensibles (NIT, resoluciones completas) si la página será pública.
+        </p>
+      </section>
+    </div>
+
+    <section style="margin-top:14px;">
+      <h2>Timeline completa (experiencia · formación · cursos · publicaciones · proyectos)</h2>
+
+      <div class="toolbar">
+        <div class="filters" id="filters"></div>
+        <input id="q" type="search" placeholder="Buscar (ej: SENA, Docente, ISBN, Exportación, EAN...)" autocomplete="off" />
+        <div class="muted small" id="count"></div>
+      </div>
+
+      <div class="list" id="list"></div>
+
+      <div class="footer">
+        <span id="year"></span> · Hecho con HTML + GitHub Pages
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const items = [
+  {
+    "fecha": "19/03/1981",
+    "desde": "19/03/1981",
+    "hasta": "30/11/1983",
+    "duracion": "3 años",
+    "titulo": "Carrera Oficial Militar",
+    "lugar": "Escuela Militar de cadetes General José maría Córdoba",
+    "categoria": "Formación"
+  },
+  {
+    "fecha": "06/04/2006",
+    "desde": "",
+    "hasta": "06/04/2006",
+    "duracion": "",
+    "titulo": "Especialista en ventas Microsoft 2006",
+    "lugar": "Microsoft Colombia",
+    "categoria": "Formación"
+  },
+  {
+    "fecha": "11/07/2000",
+    "desde": "11/07/2000",
+    "hasta": "11/01/2008",
+    "duracion": "8 años",
+    "titulo": "Apertura de Café Computer Matricula No 106580",
+    "lugar": "Armenia Quindío Ventas de computadores",
+    "categoria": "Proyectos y emprendimiento"
+  },
+  {
+    "fecha": "15/04/2009",
+    "desde": "21/02/2005",
+    "hasta": "15/04/2009",
+    "duracion": "4 años",
+    "titulo": "Profesional en Administración de Negocios",
+    "lugar": "Universidad del Quindío /Colombia",
+    "categoria": "Formación"
+  },
+  {
+    "fecha": "23/10/2009",
+    "desde": "23/10/2009",
+    "hasta": "23/10/2009",
+    "duracion": "N/A",
+    "titulo": "Reconocimiento al mejor Administrador de Negocios Acta 028",
+    "lugar": "Universidad Quindío",
+    "categoria": "Reconocimientos y eventos"
+  },
+  {
+    "fecha": "12/04/2010",
+    "desde": "12/02/2010",
+    "hasta": "23/11/2010",
+    "duracion": "8 meses",
+    "titulo": "Desarrolle y ejecute el Concurso Forex Universitario Bursátil",
+    "lugar": "Universidad Del Quindío",
+    "categoria": "Cursos"
+  },
+  {
+    "fecha": "10/05/2010",
+    "desde": "21/10/2009",
+    "hasta": "10/05/2010",
+    "duracion": "6 meses",
+    "titulo": "Diplomado competencias del docente universitario",
+    "lugar": "Unión Americana de Educación Superior UNAES",
+    "categoria": "Formación"
+  },
+  {
+    "fecha": "17/04/2015",
+    "desde": "",
+    "hasta": "17/04/2015",
+    "duracion": "60 HORAS",
+    "titulo": "ENGLISH WORKS BEGINNER",
+    "lugar": "Servicio Nacional de Aprendizaje SENA",
+    "categoria": "Cursos"
+  },
+  {
+    "fecha": "14/06/2010",
+    "desde": "14/06/2010",
+    "hasta": "26/05/2015",
+    "duracion": "5 años",
+    "titulo": "Docente Universitario en áreas Administrativas",
+    "lugar": "Unión Americana de Educación Superior UNAES",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "09/04/2012",
+    "desde": "09/04/2012",
+    "hasta": "03/10/2015",
+    "duracion": "3 años",
+    "titulo": "Secretaria de Educación Bogotá",
+    "lugar": "Docente de Aula",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "12/07/2016",
+    "desde": "12/07/2016",
+    "hasta": "04/02/2019",
+    "duracion": "2.7 años",
+    "titulo": "Secretaria de Educación Bogotá",
+    "lugar": "Docente de Aula",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "05/02/2014",
+    "desde": "05/02/2014",
+    "hasta": "30/05/2014",
+    "duracion": "4 meses",
+    "titulo": "Tecnológica Industrial Colombiana. TEINCO",
+    "lugar": "Docente medio tiempo",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "19/02/2014",
+    "desde": "19/02/2014",
+    "hasta": "12/12/2014",
+    "duracion": "10 meses",
+    "titulo": "Fundación Educación Nuevo retiro FENUR.",
+    "lugar": "Docente",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "05/02/2015",
+    "desde": "05/02/2015",
+    "hasta": "04/06/2015",
+    "duracion": "4 MESES",
+    "titulo": "Docente áreas Administrativas",
+    "lugar": "Tecnológica Industrial Colombiana. TEINCO",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "08/03/2016",
+    "desde": "",
+    "hasta": "08/03/2016",
+    "duracion": "1 año",
+    "titulo": "Autor Libro Impacto sobre responsabilidad tributaria para personas naturales",
+    "lugar": "Cámara Colombiana del Libro 978-958-46-8456-1",
+    "categoria": "Publicaciones"
+  },
+  {
+    "fecha": "15/04/2014",
+    "desde": "15/04/2014",
+    "hasta": "28/05/2019",
+    "duracion": "5 años",
+    "titulo": "Ciam Publicidad y Decoración",
+    "lugar": "Asesor de marketing",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "28/09/2018",
+    "desde": "21/02/2016",
+    "hasta": "28/09/2018",
+    "duracion": "2 AÑOS",
+    "titulo": "Magister Negocios Internacionales",
+    "lugar": "UNIVERSIDAD EAN BOGOTA",
+    "categoria": "Formación"
+  },
+  {
+    "fecha": "09/11/2018",
+    "desde": "",
+    "hasta": "09/002018",
+    "duracion": "1 año",
+    "titulo": "Autor Libro “Modelo Matemático para la sostenibilidad económica de las empresas exportadoras”",
+    "lugar": "Cámara colombiana del libro 978-958-48-5189-5",
+    "categoria": "Publicaciones"
+  },
+  {
+    "fecha": "03/10/2018",
+    "desde": "",
+    "hasta": "03/10/2018",
+    "duracion": "3 días",
+    "titulo": "Ponente III Congreso Internacional de Investigación en Competitividad, sostenibilidad y Relaciones Internacionales",
+    "lugar": "Universidad EAN, Red RADAR",
+    "categoria": "Reconocimientos y eventos"
+  },
+  {
+    "fecha": "03/10/2018",
+    "desde": "",
+    "hasta": "03/10/2018",
+    "duracion": "3 días",
+    "titulo": "Reconocimiento III Congreso Internacional de Investigación en Competitividad, sostenibilidad y Relaciones Internacionales",
+    "lugar": "Universidad EAN, Red RADAR",
+    "categoria": "Reconocimientos y eventos"
+  },
+  {
+    "fecha": "06/06/2019",
+    "desde": "",
+    "hasta": "06/06/2019",
+    "duracion": "1 año",
+    "titulo": "Autor Libro “Mercado de Valores",
+    "lugar": "Cámara colombiana del libro 978-958-48-6662-2",
+    "categoria": "Publicaciones"
+  },
+  {
+    "fecha": "05/02/2020",
+    "desde": "05/02/2020",
+    "hasta": "03/06/2023",
+    "duracion": "3 años 4 meses",
+    "titulo": "Docente áreas Administrativas",
+    "lugar": "Corporación Unificada Nacional De Educación Superior CUN",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "17/09/2020",
+    "desde": "17/09/2020",
+    "hasta": "25/07/2022",
+    "duracion": "1.año 10 mese",
+    "titulo": "Docente de áreas administrativas para la media de formación",
+    "lugar": "Institución Educativa Conde San German Gobernación Norte de Santander",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "17/04/2023",
+    "desde": "",
+    "hasta": "17/04/2023",
+    "duracion": "",
+    "titulo": "Creación y ejecución ICA a Pineapplexport SAS como empacadora de vegetales NIT 901.675.572-6 resolución 3953",
+    "lugar": "Intitulo Colombiano Agropecuario ICA.",
+    "categoria": "Proyectos y emprendimiento"
+  },
+  {
+    "fecha": "02/06/2023",
+    "desde": "",
+    "hasta": "02/06/2023",
+    "duracion": "",
+    "titulo": "Creación y ejecución “Por la cual se otorga el registro como exportador de vegetales frescos a la empresa PINEAPPLEXPORT SAS.” RESOLUCIÓN No.00006244",
+    "lugar": "Intitulo Colombiano Agropecuario ICA",
+    "categoria": "Proyectos y emprendimiento"
+  },
+  {
+    "fecha": "15/05/2023",
+    "desde": "",
+    "hasta": "15/05/2023",
+    "duracion": "",
+    "titulo": "Creación y ejecución Otorgar el registro 257401786 como lugar de producción de vegetales para la exportación en fresco al predio BUENAVISTA.” Con facultades a PINEAPPLEXPORT SAS",
+    "lugar": "Resolución 0005363 ICA Intitulo Colombiano Agropecuario ICA",
+    "categoria": "Proyectos y emprendimiento"
+  },
+  {
+    "fecha": "19/01/2023",
+    "desde": "19/01/2023",
+    "hasta": "ACTIVA",
+    "duracion": "",
+    "titulo": "Creación y ejecución Apertura Pineapplexport SAS Exportadora de fruta fresca",
+    "lugar": "Registro Cámara de Comercio Bogotá",
+    "categoria": "Proyectos y emprendimiento"
+  },
+  {
+    "fecha": "06/10/2025",
+    "desde": "18/09/2025",
+    "hasta": "06/10/2025",
+    "duracion": "48",
+    "titulo": "Planeación de estrategias pedagógicas y técnicas didácticas para la formación profesional integral",
+    "lugar": "Servicio Nacional de Aprendizaje SENA",
+    "categoria": "Cursos"
+  },
+  {
+    "fecha": "25/08/2025",
+    "desde": "",
+    "hasta": "25/08/2025",
+    "duracion": "",
+    "titulo": "Uso de herramientas IA en la ejecución de formación Profesional Integral",
+    "lugar": "Servicio Nacional de Aprendizaje SENA",
+    "categoria": "Cursos"
+  },
+  {
+    "fecha": "20/08/2025",
+    "desde": "26/09/2025",
+    "hasta": "20/08/2025",
+    "duracion": "96 horas",
+    "titulo": "Elaboración de Recursos Didácticos para la ejecución profesional integral",
+    "lugar": "Servicio Nacional de Aprendizaje SENA",
+    "categoria": "Cursos"
+  },
+  {
+    "fecha": "03/12/2025",
+    "desde": "21/10/2025",
+    "hasta": "03/12/2025",
+    "duracion": "96 HORAS",
+    "titulo": "Curso: Contextualización y rutas de aprendizaje de la sistematización de experiencias",
+    "lugar": "Servicio Nacional de Aprendizaje SENA",
+    "categoria": "Cursos"
+  },
+  {
+    "fecha": "04/01/2025",
+    "desde": "04/01/2025",
+    "hasta": "12/12/2025",
+    "duracion": "",
+    "titulo": "Prestación de servicios profesionales de carácter temporal, con autonomía técnica, administrativa, financiera y tecnológica, para dar cumplimiento a los procesos formativos dirigidos a los aprendices en las competencias técnicas vinculadas a la red de conocimiento de Gestión Administrativa y Servicios Financieros, en la modalidad presencial del programa de articulación con la educación media, de conformidad con los lineamientos establecidos para la formación profesional integral.",
+    "lugar": "SENA Seccional Bogotá Gestión administrativa y financiera",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "04/01/2026",
+    "desde": "29/01/2026",
+    "hasta": "ACTIVO",
+    "duracion": "",
+    "titulo": "Prestación de servicios profesionales de carácter temporal, con autonomía técnica, administrativa, financiera y tecnológica, para dar cumplimiento a los procesos formativos dirigidos a los aprendices en las competencias técnicas vinculadas a la red de conocimiento de Gestión Administrativa y Servicios Financieros, en la modalidad presencial del programa de articulación con la educación media, de conformidad con los lineamientos establecidos para la formación profesional integral.",
+    "lugar": "SENA Seccional Bogotá Gestión administrativa y financiera",
+    "categoria": "Experiencia"
+  },
+  {
+    "fecha": "20/12/2025",
+    "desde": "",
+    "hasta": "20/12/2025",
+    "duracion": "60 horas",
+    "titulo": "Curso de pertinencia Social de la acción Educativa",
+    "lugar": "Universidad de Investigación e innovación de México",
+    "categoria": "Cursos"
+  },
+  {
+    "fecha": "26/05/2025",
+    "desde": "26/05/2025",
+    "hasta": "",
+    "duracion": "",
+    "titulo": "Carta de aceptación a la postulación del programa de posgrado: Doctorado en Economía y Finanzas.",
+    "lugar": "Universidad de Investigación e innovación de México",
+    "categoria": "Formación"
+  }
+];
+
+    function parseDMY(s) {
+      if (!s) return null;
+      const m = String(s).match(/(\d{2})\/(\d{2})\/(\d{4})/);
+      if (!m) return null;
+      return new Date(`${m[3]}-${m[2]}-${m[1]}T00:00:00`);
+    }
+
+    function sortKey(it) {
+      return parseDMY(it.desde) || parseDMY(it.fecha) || parseDMY(it.hasta) || new Date(0);
+    }
+
+    function period(it) {
+      const d = (it.desde || "").trim();
+      const h = (it.hasta || "").trim();
+      const f = (it.fecha || "").trim();
+      if (d && h) return `${d} – ${h}`;
+      if (d && !h) return `Desde ${d}`;
+      if (!d && h) return `Hasta ${h}`;
+      return f || "";
+    }
+
+    function textIndex(it) {
+      return `${it.titulo} ${it.lugar} ${it.categoria} ${it.desde} ${it.hasta} ${it.duracion}`.toLowerCase();
+    }
+
+    const state = { cat: "Todo", q: "" };
+    const categories = Array.from(new Set(items.map(i => i.categoria))).sort();
+
+    function renderFilters() {
+      const root = document.getElementById("filters");
+      root.innerHTML = "";
+
+      const mkBtn = (label) => {
+        const b = document.createElement("button");
+        b.textContent = label;
+        b.dataset.cat = label;
+        if (state.cat === label) b.classList.add("active");
+        b.addEventListener("click", () => {
+          state.cat = label;
+          renderFilters();
+          renderList();
+        });
+        return b;
+      };
+
+      root.appendChild(mkBtn("Todo"));
+      categories.forEach(c => root.appendChild(mkBtn(c)));
+    }
+
+    function renderList() {
+      const list = document.getElementById("list");
+      const count = document.getElementById("count");
+
+      const q = (state.q || "").trim().toLowerCase();
+      let filtered = items.slice();
+
+      if (state.cat !== "Todo") {
+        filtered = filtered.filter(i => i.categoria === state.cat);
+      }
+      if (q) {
+        filtered = filtered.filter(i => textIndex(i).includes(q));
+      }
+
+      filtered.sort((a,b) => sortKey(b) - sortKey(a));
+
+      list.innerHTML = "";
+      filtered.forEach(it => {
+        const el = document.createElement("div");
+        el.className = "item";
+
+        const top = document.createElement("div");
+        top.className = "itemTop";
+
+        const title = document.createElement("div");
+        title.className = "itemTitle";
+        title.textContent = it.titulo || "(Sin título)";
+
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.textContent = it.categoria;
+
+        top.appendChild(title);
+        top.appendChild(badge);
+
+        const meta = document.createElement("div");
+        meta.className = "itemMeta";
+
+        const parts = [];
+        const p = period(it);
+        if (p) parts.push(p);
+        if (it.duracion) parts.push(`Duración: ${it.duracion}`);
+        if (it.lugar) parts.push(it.lugar);
+
+        meta.textContent = parts.join(" · ");
+
+        el.appendChild(top);
+        el.appendChild(meta);
+        list.appendChild(el);
+      });
+
+      count.textContent = `${filtered.length} registro(s)`;
+    }
+
+    document.getElementById("q").addEventListener("input", (e) => {
+      state.q = e.target.value || "";
+      renderList();
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    renderFilters();
+    renderList();
+  </script>
+</body>
+</html>
