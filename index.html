@@ -137,6 +137,34 @@
       color:#0b1220;
       font-size:14px;
     }
+    /* Foto (tamaño y recorte) */
+.avatar{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+  border: 1px solid var(--line, #e5e7eb);
+  box-shadow: var(--shadow, 0 10px 24px rgba(2,6,23,.10));
+}
+
+/* Alinear foto al lado del nombre */
+.header .top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header .top > div{
+  flex: 1;
+  min-width: 240px;
+}
+
+/* En celular: más pequeña */
+@media (max-width: 640px){
+  .avatar{ width: 90px; height: 90px; }
+}
   </style>
 </head>
 <body>
